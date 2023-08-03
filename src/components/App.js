@@ -1,19 +1,15 @@
 import React from "react";
-import NavBar from "./NavBar";
-import Home from "./Home";
-import About from "./About";
-import ProjectList from "./ProjectList";
-import user from "../data/user";
+import Links from "./Links";
 
-function App() {
+function About({ bio, links }) {
   return (
-    <div>
-      <NavBar />
-      <Home username={user.name} city={user.city} color={user.color} />
-      <About bio={user.bio} links={user.links} />
-      <ProjectList projects={user.projects} />
+    <div id="about">
+      <h2>About Me</h2>
+      {bio && bio.length > 1 ? <p>{bio}</p> : null}
+      <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
+      <Links github={links.github} linkedin={links.linkedin} />
     </div>
   );
 }
 
-export default App;
+export default About;
